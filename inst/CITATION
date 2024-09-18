@@ -1,0 +1,25 @@
+
+year <- sub("-.*", "", meta$Date)
+if(!length(year))
+  year <- substr(Sys.Date(),1,4)
+vers <- meta$Version
+if(is.null(vers))
+  vers <- packageVersion("dLagM")
+vers <- paste("R package version", vers)
+
+# Grab authors from DESCRIPTION file
+# authors <- eval(parse(text=as.list(read.dcf("../DESCRIPTION")[1, ])$`Authors@R`))
+# authors <- authors[sapply(authors$role, function(roles) "aut" %in% roles)]
+# authors <- sapply(authors, function(author) paste(author$given, author$family))
+# authors <- paste(authors, collapse = " and ")
+
+citHeader("The citation for the dLagM package in publications:")
+
+bibentry(bibtype = "Article",
+  title     = "Detection of grey zones in inter-rater agreement studies",
+  author    = "Haydar Demirhan and Ayfer Ezgi Yilmaz",
+  journal   = "BMC Medical Research Methodology",
+  volume    =  23,
+  pages     = "3",
+  year      =  2023,
+  url       = "https://doi.org/10.1186/s12874-022-01759-7")
